@@ -16,6 +16,12 @@ Uma linha por ferramenta: `- [nome](pasta/arquivo.md) · tipo · para quê`. Uma
 
 ## pesquisa
 
+- [research-superpowers](plugins/research-superpowers.md) · plugin · fluxo completo de pesquisa: ideia → literatura → wiki → manuscrito
+- [LR-AI](plugins/lr-ai.md) · plugin · revisão de literatura automatizada com snowballing e triagem
+- [paper-search](plugins/paper-search.md) · plugin · busca de papers e lookup por DOI via OpenAlex
+- [Elicit](conectores/elicit.md) · conector · análise de papers, relatórios e revisão sistemática
+- [Consensus](conectores/consensus.md) · conector · resposta rápida baseada em evidência, com citações
+
 ## documentos
 
 ## engenharia-eletrica
