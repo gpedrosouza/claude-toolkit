@@ -4,6 +4,8 @@ Uma linha por ferramenta: `- [nome](pasta/arquivo.md) · tipo · para quê`. Uma
 
 ## geral
 
+- [anthropic-skills](plugins/anthropic-skills.md) · plugin · nativas do Claude: deep-research, skill-creator, docs, dataviz
+
 - [Superpowers](plugins/superpowers.md) · plugin · metodologia de dev: brainstorming → plano → TDD → revisão
 - [cowork-plugin-management](plugins/cowork-plugin-management.md) · plugin · criar e customizar plugins próprios
 
@@ -23,6 +25,8 @@ Uma linha por ferramenta: `- [nome](pasta/arquivo.md) · tipo · para quê`. Uma
 
 ## pesquisa
 
+- [Google Drive](conectores/google-drive.md) · conector · PDFs e materiais guardados no Drive
+
 - [research-superpowers](plugins/research-superpowers.md) · plugin · fluxo completo de pesquisa: ideia → literatura → wiki → manuscrito
 - [LR-AI](plugins/lr-ai.md) · plugin · revisão de literatura automatizada com snowballing e triagem
 - [paper-search](plugins/paper-search.md) · plugin · busca de papers e lookup por DOI via OpenAlex
@@ -30,6 +34,9 @@ Uma linha por ferramenta: `- [nome](pasta/arquivo.md) · tipo · para quê`. Uma
 - [Consensus](conectores/consensus.md) · conector · resposta rápida baseada em evidência, com citações
 
 ## documentos
+
+- [anthropic-skills](plugins/anthropic-skills.md) · plugin · nativas do Claude: Word, PDF, Excel, PowerPoint, Docs
+- [Google Drive](conectores/google-drive.md) · conector · buscar, ler e salvar arquivos no seu Drive
 
 - [Canva](conectores/canva.md) · conector · peças visuais, apresentações e documentos no Canva
 
