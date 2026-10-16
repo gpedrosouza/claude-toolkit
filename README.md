@@ -12,7 +12,11 @@ plugins/             uma ficha por plugin
 conectores/          uma ficha por conector MCP
 agentes/             uma ficha por agente avulso
 scripts/validate.py  verifica fichas × INDEX
+modelos/             CLAUDE.md global (cópia versionada) e modelo para projetos novos
+docs/ideias/         ideias para adotar em projetos futuros
 ```
+
+**Projeto novo:** copie `modelos/CLAUDE.projeto.md` para a raiz do repo como `CLAUDE.md` e preencha. **Mudou o global?** Atualize `modelos/CLAUDE.global.md` junto com `~/.claude/CLAUDE.md`.
 
 Domínios: `geral`, `desenvolvimento`, `design`, `pesquisa`, `documentos`, `engenharia-eletrica`. Uma ferramenta pode ter vários.
 
