@@ -50,6 +50,7 @@ claude-toolkit/
 ├── plugins/         uma ficha por plugin
 ├── conectores/      uma ficha por conector MCP
 ├── agentes/         uma ficha por agente avulso (não vindo de plugin)
+├── scripts/validate.py   verifica fichas × INDEX (não gera nada)
 └── docs/superpowers/specs/   specs de design do próprio repo
 ```
 
@@ -68,7 +69,7 @@ tipo: plugin | conector | agente
 dominios: [<domínio>, ...]
 fonte: <URL do repo ou "marketplace oficial" / "built-in">
 superficies: [chat, claude-code]
-instalado_em: AAAA-MM-DD
+instalado_em: AAAA-MM-DD   # ou "desconhecido" para instalações antigas
 ---
 
 # <nome>
