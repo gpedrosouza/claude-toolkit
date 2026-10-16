@@ -17,6 +17,7 @@ Agente que responde dúvidas sobre o próprio ecossistema Claude: Claude Code, A
 
 ## Quando não usar
 - Dúvidas sobre o seu próprio código: Explore ou leitura direta
+- Pergunta pequena que o Claude responde direto: o agente começa sem contexto e custa mais tokens
 
 ## Componentes
 | Acesso | Detalhe |

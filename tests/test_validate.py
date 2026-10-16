@@ -102,6 +102,20 @@ class ValidateTest(unittest.TestCase):
         )
         self.assertEqual(ok, [])
 
+    def test_dominios_em_formato_nao_reconhecido(self):
+        bloco = ficha(dominios="").replace("dominios: \n", "dominios:\n  - geral\n")
+        erros = self.montar({"plugins/x.md": bloco}, index({}))
+        self.assertErro(erros, "dominios deve ser lista [a, b] nao vazia")
+
+    def test_dominios_vazio(self):
+        erros = self.montar({"plugins/x.md": ficha(dominios="[]")}, index({}))
+        self.assertErro(erros, "dominios deve ser lista [a, b] nao vazia")
+
+    def test_link_quebrado_entre_fichas(self):
+        conteudo = ficha().replace("## Combina com\n- x", "## Combina com\n- [Y](../conectores/y.md)")
+        erros = self.montar({"plugins/x.md": conteudo}, index({"geral": ["plugins/x.md"]}))
+        self.assertErro(erros, "plugins/x.md: link quebrado: ../conectores/y.md")
+
 
 if __name__ == "__main__":
     unittest.main()

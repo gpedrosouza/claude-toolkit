@@ -54,6 +54,8 @@ def validar_ficha(rel, texto):
     if tipo and tipo != PASTAS[pasta]:
         erros.append(f"{rel}: tipo {tipo} nao combina com {pasta}/")
     dominios = fm.get("dominios") if isinstance(fm.get("dominios"), list) else []
+    if "dominios" in fm and not dominios:
+        erros.append(f"{rel}: dominios deve ser lista [a, b] nao vazia")
     erros += [f"{rel}: dominio invalido: {d}" for d in dominios if d not in DOMINIOS]
     data = fm.get("instalado_em")
     if data and data != "desconhecido" and not DATA.match(data):
@@ -68,8 +70,14 @@ def validate(root):
     for pasta in PASTAS:
         for arquivo in sorted((root / pasta).glob("*.md")):
             rel = f"{pasta}/{arquivo.name}"
-            e, dominios = validar_ficha(rel, arquivo.read_text(encoding="utf-8"))
+            texto = arquivo.read_text(encoding="utf-8")
+            e, dominios = validar_ficha(rel, texto)
             erros += e
+            erros += [
+                f"{rel}: link quebrado: {l}"
+                for l in LINK.findall(texto)
+                if not l.startswith("http") and not (arquivo.parent / l).exists()
+            ]
             fichas[rel] = dominios
 
     indice = root / "INDEX.md"

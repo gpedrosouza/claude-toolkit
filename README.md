@@ -47,5 +47,5 @@ Arquivo: slug do nome (`google-drive.md`). Ficha cabe numa tela.
 
 1. **Instalação** — ao instalar algo a pedido do Guilherme: criar a ficha, adicionar a linha em cada domínio no INDEX e commitar, no mesmo pedido.
 2. **Início de projeto** — ler só o INDEX, identificar os domínios do projeto e propor as ferramentas desse recorte mais as de `geral`. Abrir fichas só das escolhidas. Esperar aprovação antes de usar.
-3. **Remoção** — ao desinstalar algo: apagar a ficha e suas linhas no INDEX e commitar. Exceção: `anthropic-skills` (vem com o Claude).
+3. **Remoção** — ao desinstalar algo: apagar a ficha, suas linhas no INDEX e os links para ela em "Combina com" de outras fichas, e commitar. Exceção: `anthropic-skills` (vem com o Claude).
 4. Rodar `python3 scripts/validate.py` antes de cada commit.
