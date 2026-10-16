@@ -9,10 +9,17 @@ Uma linha por ferramenta: `- [nome](pasta/arquivo.md) · tipo · para quê`. Uma
 
 ## desenvolvimento
 
+- [Figma (plugin)](plugins/figma.md) · plugin · design → código e código → design
+
 - [Superpowers](plugins/superpowers.md) · plugin · metodologia de dev: brainstorming → plano → TDD → revisão
 - [engineering](plugins/engineering.md) · plugin · skills avulsas: code review, debug, arquitetura, deploy, docs
 
 ## design
+
+- [Figma (plugin)](plugins/figma.md) · plugin · instruções para ler, criar e sincronizar designs no Figma
+- [Figma (conector)](conectores/figma.md) · conector · acesso aos seus arquivos do Figma
+- [design](plugins/design.md) · plugin · crítica de design, UX copy, acessibilidade, handoff
+- [Canva](conectores/canva.md) · conector · criar e exportar designs no Canva
 
 ## pesquisa
 
@@ -23,6 +30,8 @@ Uma linha por ferramenta: `- [nome](pasta/arquivo.md) · tipo · para quê`. Uma
 - [Consensus](conectores/consensus.md) · conector · resposta rápida baseada em evidência, com citações
 
 ## documentos
+
+- [Canva](conectores/canva.md) · conector · peças visuais, apresentações e documentos no Canva
 
 ## engenharia-eletrica
 
