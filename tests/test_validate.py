@@ -116,6 +116,72 @@ class ValidateTest(unittest.TestCase):
         erros = self.montar({"plugins/x.md": conteudo}, index({"geral": ["plugins/x.md"]}))
         self.assertErro(erros, "plugins/x.md: link quebrado: ../conectores/y.md")
 
+    # --- robustez a edições realistas ---
+
+    def test_heading_com_espaco_no_fim_e_aceito(self):
+        conteudo = ficha().replace("## Notas\n", "## Notas   \n")
+        erros = self.montar({"plugins/x.md": conteudo}, index({"geral": ["plugins/x.md"]}))
+        self.assertEqual(erros, [])
+
+    def test_heading_dentro_de_bloco_de_codigo_nao_conta(self):
+        conteudo = ficha(omitir="Notas") + "```\n## Notas\n```\n"
+        erros = self.montar({"plugins/x.md": conteudo}, index({"geral": ["plugins/x.md"]}))
+        self.assertErro(erros, "secao faltando: ## Notas")
+
+    def test_ordem_das_secoes(self):
+        conteudo = ficha().replace("## Quando usar", "## TMP").replace(
+            "## Quando não usar", "## Quando usar").replace("## TMP", "## Quando não usar")
+        erros = self.montar({"plugins/x.md": conteudo}, index({"geral": ["plugins/x.md"]}))
+        self.assertErro(erros, "secoes fora de ordem")
+
+    def test_bom_utf8_e_aceito(self):
+        erros = self.montar({"plugins/x.md": "﻿" + ficha()}, index({"geral": ["plugins/x.md"]}))
+        self.assertEqual(erros, [])
+
+    def test_frontmatter_sem_quebra_final_e_lido(self):
+        erros = self.montar({"plugins/x.md": "---\nnome: X\n---"}, index({}))
+        self.assertFalse(any("frontmatter ausente" in e for e in erros), erros)
+
+    def test_indice_aceita_prefixo_ponto_barra_e_ancora(self):
+        erros = self.montar({"plugins/x.md": ficha()}, index({"geral": ["./plugins/x.md#notas"]}))
+        self.assertEqual(erros, [])
+
+    def test_indice_ignora_link_externo(self):
+        erros = self.montar({}, index({"geral": ["https://github.com"]}))
+        self.assertEqual(erros, [])
+
+    def test_link_para_pasta_e_quebrado(self):
+        erros = self.montar({}, index({"geral": ["plugins"]}))
+        self.assertErro(erros, "link quebrado: plugins")
+
+    def test_data_impossivel(self):
+        erros = self.montar(
+            {"plugins/x.md": ficha(instalado_em="2026-13-45")}, index({"geral": ["plugins/x.md"]})
+        )
+        self.assertErro(erros, "instalado_em invalido")
+
+    def test_superficie_invalida(self):
+        conteudo = ficha().replace("superficies: [chat]", "superficies: [web]")
+        erros = self.montar({"plugins/x.md": conteudo}, index({"geral": ["plugins/x.md"]}))
+        self.assertErro(erros, "superficie invalida: web")
+
+    def test_nome_vazio(self):
+        conteudo = ficha().replace("nome: X", "nome:")
+        erros = self.montar({"plugins/x.md": conteudo}, index({"geral": ["plugins/x.md"]}))
+        self.assertErro(erros, "nome vazio")
+
+    def test_dominio_duplicado(self):
+        erros = self.montar(
+            {"plugins/x.md": ficha(dominios="[geral, geral]")}, index({"geral": ["plugins/x.md"]})
+        )
+        self.assertErro(erros, "dominio duplicado: geral")
+
+    def test_linha_duplicada_no_indice(self):
+        erros = self.montar(
+            {"plugins/x.md": ficha()}, index({"geral": ["plugins/x.md", "plugins/x.md"]})
+        )
+        self.assertErro(erros, "x.md duplicada em ## geral")
+
 
 if __name__ == "__main__":
     unittest.main()

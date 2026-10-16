@@ -41,7 +41,15 @@ instalado_em: AAAA-MM-DD   # ou "desconhecido"
 ## Notas
 ```
 
-Arquivo: slug do nome (`google-drive.md`). Ficha cabe numa tela.
+Arquivo: slug do nome (`google-drive.md`). Ficha cabe numa tela. Seções nesta ordem.
+
+## Linha do INDEX
+
+```markdown
+- [Superpowers](plugins/superpowers.md) · plugin · metodologia de dev: brainstorming → plano → TDD → revisão
+```
+
+A ficha aparece sob cada `## <domínio>` que declara. Ordem em cada seção: plugins, conectores, agentes; alfabética dentro de cada tipo.
 
 ## Regras para o Claude
 
