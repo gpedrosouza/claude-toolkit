@@ -1,6 +1,6 @@
 # Índice
 
-Uma linha por ferramenta: `- [nome](pasta/arquivo.md) · tipo · para quê`. Uma ferramenta aparece em cada domínio que declara. Ordem em cada seção: plugins, conectores, agentes; alfabética dentro de cada tipo.
+Uma linha por ferramenta: `- [nome](pasta/arquivo.md) · tipo · para quê`. Uma ferramenta aparece em cada domínio que declara. Ordem em cada seção: plugins, conectores, skills, agentes; alfabética dentro de cada tipo.
 
 ## geral
 
@@ -34,6 +34,7 @@ Uma linha por ferramenta: `- [nome](pasta/arquivo.md) · tipo · para quê`. Uma
 - [Consensus](conectores/consensus.md) · conector · resposta rápida baseada em evidência, com citações
 - [Elicit](conectores/elicit.md) · conector · análise de papers, relatórios e revisão sistemática
 - [Google Drive](conectores/google-drive.md) · conector · PDFs e materiais guardados no Drive
+- [scientific-writing](skills/scientific-writing.md) · skill · manuscritos com fontes verificadas, sem citação inventada
 
 ## documentos
 

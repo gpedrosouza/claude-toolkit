@@ -9,7 +9,7 @@ from pathlib import Path
 
 DOMINIOS = {"geral", "desenvolvimento", "design", "pesquisa", "documentos", "engenharia-eletrica"}
 SUPERFICIES = {"chat", "claude-code"}
-PASTAS = {"plugins": "plugin", "conectores": "conector", "agentes": "agente"}
+PASTAS = {"plugins": "plugin", "conectores": "conector", "agentes": "agente", "skills": "skill"}
 CAMPOS = ["nome", "tipo", "dominios", "fonte", "superficies", "instalado_em"]
 SECOES = ["Quando usar", "Quando não usar", "Componentes", "Combina com", "Notas"]
 LINK = re.compile(r"\]\(([^)]+)\)")

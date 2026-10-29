@@ -39,7 +39,7 @@ class ValidateTest(unittest.TestCase):
         tmp = tempfile.TemporaryDirectory()
         self.addCleanup(tmp.cleanup)
         root = Path(tmp.name)
-        for pasta in ("plugins", "conectores", "agentes"):
+        for pasta in ("plugins", "conectores", "agentes", "skills"):
             (root / pasta).mkdir()
         for caminho, conteudo in arquivos.items():
             (root / caminho).write_text(conteudo, encoding="utf-8")
@@ -181,6 +181,24 @@ class ValidateTest(unittest.TestCase):
             {"plugins/x.md": ficha()}, index({"geral": ["plugins/x.md", "plugins/x.md"]})
         )
         self.assertErro(erros, "x.md duplicada em ## geral")
+
+    def test_pasta_skills_e_validada(self):
+        erros = self.montar(
+            {"skills/x.md": ficha(tipo="skill", dominios="[dev]")}, index({"geral": ["skills/x.md"]})
+        )
+        self.assertErro(erros, "skills/x.md: dominio invalido: dev")
+
+    def test_ficha_de_skill_valida(self):
+        erros = self.montar(
+            {"skills/x.md": ficha(tipo="skill")}, index({"geral": ["skills/x.md"]})
+        )
+        self.assertEqual(erros, [])
+
+    def test_tipo_skill_fora_da_pasta_skills(self):
+        erros = self.montar(
+            {"plugins/x.md": ficha(tipo="skill")}, index({"geral": ["plugins/x.md"]})
+        )
+        self.assertErro(erros, "tipo skill nao combina com plugins/")
 
 
 if __name__ == "__main__":

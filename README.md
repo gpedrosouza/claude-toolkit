@@ -11,6 +11,7 @@ INDEX.md             uma linha por ferramenta, agrupado por domínio
 plugins/             uma ficha por plugin
 conectores/          uma ficha por conector MCP
 agentes/             uma ficha por agente avulso
+skills/              uma ficha por skill avulsa (fora de plugin)
 scripts/validate.py  verifica fichas × INDEX
 modelos/             CLAUDE.md global (cópia versionada) e modelo para projetos novos
 docs/ideias/         ideias para adotar em projetos futuros
@@ -27,7 +28,7 @@ Agentes que vêm dentro de um plugin ficam listados na ficha do plugin.
 ```markdown
 ---
 nome: <nome de exibição>
-tipo: plugin | conector | agente
+tipo: plugin | conector | agente | skill
 dominios: [<domínio>, ...]
 fonte: <URL do repo, "marketplace oficial" ou "built-in">
 superficies: [chat, claude-code]
