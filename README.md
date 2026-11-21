@@ -1,6 +1,10 @@
 # claude-toolkit
 
+> **EN —** My operating manual for working with AI agents. It catalogs every plugin, MCP connector, sub-agent and skill installed in my Claude setup, grouped by domain, so an agent can read a ~1.5k-token index at the start of a project and propose only the tools that fit. It also versions my global and per-project `CLAUDE.md` templates, and a validator keeps the index and the cards in sync.
+
 Dicionário dos plugins, conectores e agentes instalados no meu Claude, organizado por domínio. Serve para responder rápido: *neste projeto, quais ferramentas eu uso?*
+
+**Por que existe:** com dezenas de ferramentas instaladas, carregar tudo em cada sessão gasta contexto e confunde o agente. Aqui o agente lê só o `INDEX.md`, escolhe o recorte do projeto e abre a ficha apenas do que vai usar. Os modelos de `CLAUDE.md` padronizam como cada projeto meu começa com o Claude Code.
 
 Comece pelo [INDEX.md](INDEX.md). Cada linha leva a uma ficha curta.
 
